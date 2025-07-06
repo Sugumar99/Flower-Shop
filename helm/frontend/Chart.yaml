@@ -1,0 +1,4 @@
+apiVersion: v2
+name: flower-frontend
+version: 0.1.0
+description: A Helm chart for the flower frontend React app
