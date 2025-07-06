@@ -1,0 +1,10 @@
+replicaCount: 2
+
+image:
+  repository: "<your_ecr_frontend_repo>"
+  tag: "latest"
+  pullPolicy: Always
+
+service:
+  type: LoadBalancer
+  port: 80
