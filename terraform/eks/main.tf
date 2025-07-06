@@ -19,19 +19,19 @@ module "vpc" {
 
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
-  version = "20.8.4"
+  version = "18.31.2"
 
   cluster_name    = var.cluster_name
   cluster_version = var.cluster_version
-  subnet_ids      = module.vpc.private_subnets
   vpc_id          = module.vpc.vpc_id
+  subnet_ids      = module.vpc.private_subnets
 
   node_groups = {
-    main = {
+    flower_nodes = {
       desired_capacity = var.node_desired_capacity
       max_capacity     = var.node_max_capacity
       min_capacity     = var.node_min_capacity
-      instance_types   = var.node_instance_types
+       instance_types = var.node_instance_types
     }
   }
 }
